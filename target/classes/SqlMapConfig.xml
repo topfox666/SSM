@@ -13,8 +13,8 @@
             <!-- 配置数据源（连接池）-->
             <dataSource type="POOLED">
                 <!-- 配置连接数据库的4个基本信息 -->
-                <property name="driver" value="com.mysql.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/eesy_mybatis"/>
+                <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/eesy_mybatis?useSSL=true&amp;useUnicode=true&amp;characterEncoding=utf-8"/>
                 <property name="username" value="root"/>
                 <property name="password" value="topfox123"/>
             </dataSource>
@@ -24,5 +24,6 @@
     <!-- 指定映射配置文件的位置，映射配置文件指的是每个dao独立的配置文件 -->
     <mappers>
         <mapper resource="com/topfox/dao/IUserDao.xml"/>
+        <mapper class="com.topfox.dao.IUserDao2"/>
     </mappers>
 </configuration>

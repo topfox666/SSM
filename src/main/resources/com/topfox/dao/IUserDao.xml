@@ -7,4 +7,34 @@
     <select id="findAll" resultType="com.topfox.domain.User">
         select * from user
     </select>
+
+    <!--保存用户-->
+    <insert id="saveUser" parameterType="com.topfox.domain.User">
+        insert into user(username,address,sex,birthday)values(#{username},#{address},#{sex},#{birthday})
+    </insert>
+
+    <!-- 更新用户-->
+    <update id="updateUser" parameterType="com.topfox.domain.User">
+        update user set username=#{username},address=#{address},sex=#{sex},birthday=#{birthday} where id=#{id}
+    </update>
+
+    <!-- 删除用户-->
+    <delete id="deleteUser" parameterType="java.lang.Integer">
+        delete from user where id=#{id}
+    </delete>
+
+    <!-- 根据id找用户 -->
+    <select id="findById" resultType="com.topfox.domain.User" parameterType="Integer">
+        select * from user where id=#{id}
+    </select>
+
+    <!-- 根据名称找用户 -->
+    <select id="findByName" resultType="com.topfox.domain.User" parameterType="String">
+        select * from user where username like '%${username}%'
+    </select>
+
+    <!-- 用户总数 -->
+    <select id="userCount" resultType="int">
+        select count(id) from user
+    </select>
 </mapper>
